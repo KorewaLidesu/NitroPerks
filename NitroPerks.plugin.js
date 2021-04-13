@@ -1,8 +1,8 @@
 /**
- * @name NitroPerks
- * @website https://github.com/respecting/NitroPerks
- * @source https://raw.githubusercontent.com/respecting/NitroPerks/main/NitroPerks.plugin.js
- * @updateUrl https://raw.githubusercontent.com/respecting/NitroPerks/main/NitroPerks.plugin.js
+ * @name SharescreenUnlock
+ * @website https://github.com/KorewaLidesu/SharescreenUnlock
+ * @source https://raw.githubusercontent.com/KorewaLidesu/SharescreenUnlock/main/SharescreenUnlock.plugin.js
+ * @updateUrl https://raw.githubusercontent.com/KorewaLidesu/SharescreenUnlock/main/SharescreenUnlock.plugin.js
  */
 /*@cc_on
 @if (@_jscript)
@@ -30,18 +30,18 @@
 module.exports = (() => {
     const config = {
         "info": {
-            "name": "NitroPerks",
+            "name": "SharescreenUnlock",
             "authors": [{
                 "name": "lemons",
                 "discord_id": "407348579376693260",
                 "github_username": "respecting"
             }],
             "version": "1.3.6",
-            "description": "Unlock all screensharing modes, Discord wide! (You CANNOT upload 100MB files though. :/)",
-            "github": "https://github.com/respecting/NitroPerks",
-            "github_raw": "https://raw.githubusercontent.com/KorewaLidesu/NitroPerks/main/NitroPerks.plugin.js"
+            "description": "Unlock all screensharing modes, Discord wide!",
+            "github": "https://github.com/KorewaLidesu/SharescreenUnlock",
+            "github_raw": "https://raw.githubusercontent.com/KorewaLidesu/SharescreenUnlock/main/SharescreenUnlock.plugin.js"
         },
-        "main": "NitroPerks.plugin.js"
+        "main": "SharescreenUnlock.plugin.js"
     };
 
     return !global.ZeresPluginLibrary ? class {
@@ -90,7 +90,6 @@ module.exports = (() => {
                 };
                 settings = PluginUtilities.loadSettings(this.getName(), this.defaultSettings);
                 originalNitroStatus = 0;
-                clientsidePfp;
                 screenShareFix;
                 getSettingsPanel() {
                     return Settings.SettingPanel.build(_ => this.saveAndUpdate(), ...[
