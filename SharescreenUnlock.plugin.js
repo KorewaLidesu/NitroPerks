@@ -86,7 +86,7 @@ module.exports = (() => {
             } = Api;
             return class NitroPerks extends Plugin {
                 defaultSettings = {
-                    "screenSharing": false,
+                    "screenSharing": true,
                 };
                 settings = PluginUtilities.loadSettings(this.getName(), this.defaultSettings);
                 originalNitroStatus = 0;
