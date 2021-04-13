@@ -96,7 +96,6 @@ module.exports = (() => {
                         new Settings.SettingGroup("Features").append(...[
                             new Settings.Switch("High Quality Screensharing", "Enable or disable 1080p/source @ 60fps screensharing. This adapts to your current nitro status.", this.settings.screenSharing, value => this.settings.screenSharing = value)
                         ])
-                    ])
                 }
                 
                 saveAndUpdate() {
