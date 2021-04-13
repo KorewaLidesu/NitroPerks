@@ -86,16 +86,35 @@ module.exports = (() => {
             } = Api;
             return class NitroPerks extends Plugin {
                 defaultSettings = {
-                    "screenSharing": true,
+                    "screenSharing": false,
                 };
                 settings = PluginUtilities.loadSettings(this.getName(), this.defaultSettings);
                 originalNitroStatus = 0;
+                clientsidePfp;
                 screenShareFix;
                 getSettingsPanel() {
                     return Settings.SettingPanel.build(_ => this.saveAndUpdate(), ...[
                         new Settings.SettingGroup("Features").append(...[
                             new Settings.Switch("High Quality Screensharing", "Enable or disable 1080p/source @ 60fps screensharing. This adapts to your current nitro status.", this.settings.screenSharing, value => this.settings.screenSharing = value)
-                        ])
+                        ]),
+                        new Settings.SettingGroup("Emojis").append(
+                            new Settings.Switch("Nitro Emotes Bypass", "Enable or disable using the Nitro Emote bypass.", this.settings.emojiBypass, value => this.settings.emojiBypass = value),
+                            new Settings.Slider("Size", "The size of the emoji in pixels. 40 is recommended.", 16, 64, this.settings.emojiSize, size=>this.settings.emojiSize = size, {markers:[16,20,32,40,64], stickToMarkers:true})
+                        ),
+                            new Settings.SettingGroup("Profile Picture").append(...[
+                                new Settings.Switch("Clientsided Profile Picture", "Enable or disable clientsided profile pictures.", this.settings.clientsidePfp, value => this.settings.clientsidePfp = value),
+                                new Settings.Textbox("URL", "The direct URL that has the profile picture you want.", this.settings.pfpUrl,
+                                    image => {
+                                        try {
+                                            new URL(image)
+                                        } catch {
+                                            return Toasts.error('This is an invalid URL!')
+                                        }
+                                        this.settings.pfpUrl = image
+                                    }
+                                )
+                            ])
+                    ])
                 }
                 
                 saveAndUpdate() {
@@ -131,8 +150,9 @@ module.exports = (() => {
                     }
 
                     if (this.settings.screenSharing) BdApi.clearCSS("screenShare")
-
-		onStart() {
+                }
+		
+                onStart() {
                     this.originalNitroStatus = DiscordAPI.currentUser.discordObject.premiumType;
                     this.saveAndUpdate()
                     DiscordAPI.currentUser.discordObject.premiumType = 2
@@ -140,7 +160,6 @@ module.exports = (() => {
 
                 onStop() {
                     DiscordAPI.currentUser.discordObject.premiumType = this.originalNitroStatus;
-                    this.removeClientsidePfp()
                     Patcher.unpatchAll();
                 }
             };
