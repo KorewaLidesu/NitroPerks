@@ -1,8 +1,8 @@
 /**
- * @name SharescreenUnlock
- * @website https://github.com/KorewaLidesu/SharescreenUnlock
- * @source https://raw.githubusercontent.com/KorewaLidesu/SharescreenUnlock/main/SharescreenUnlock.plugin.js
- * @updateUrl https://raw.githubusercontent.com/KorewaLidesu/SharescreenUnlock/main/SharescreenUnlock.plugin.js
+ * @name NitroPerks
+ * @website https://github.com/KorewaLidesu/NitroPerks
+ * @source https://raw.githubusercontent.com/KorewaLidesu/NitroPerks/main/NitroPerks.plugin.js
+ * @updateUrl https://raw.githubusercontent.com/KorewaLidesu/NitroPerks/main/NitroPerks.plugin.js
  */
 /*@cc_on
 @if (@_jscript)
@@ -30,7 +30,7 @@
 module.exports = (() => {
     const config = {
         "info": {
-            "name": "SharescreenUnlock",
+            "name": "NitroPerks",
             "authors": [{
                 "name": "lemons",
                 "discord_id": "407348579376693260",
@@ -38,10 +38,10 @@ module.exports = (() => {
             }],
             "version": "1.3.6",
             "description": "Unlock all screensharing modes, Discord wide!",
-            "github": "https://github.com/KorewaLidesu/SharescreenUnlock",
-            "github_raw": "https://raw.githubusercontent.com/KorewaLidesu/SharescreenUnlock/main/SharescreenUnlock.plugin.js"
+            "github": "https://github.com/KorewaLidesu/NitroPerks",
+            "github_raw": "https://raw.githubusercontent.com/KorewaLidesu/NitroPerks/main/NitroPerks.plugin.js"
         },
-        "main": "SharescreenUnlock.plugin.js"
+        "main": "NitroPerks.plugin.js"
     };
 
     return !global.ZeresPluginLibrary ? class {
