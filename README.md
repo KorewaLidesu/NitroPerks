@@ -1,2 +1,2 @@
-# NitroPerks
- Unlock all screensharing modes, and use cross-server emotes & gif emotes, Discord wide! (You CANNOT upload 100MB files though. :/)
+# SharescreenUnlock (forked from [NitroPerks](https://github.com/respecting/NitroPerks))
+ Unlock all screensharing modes, Discord wide! (You CANNOT upload 100MB files though. :/)
