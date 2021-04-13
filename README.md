@@ -1,4 +1,4 @@
 # SharescreenUnlock (forked from [NitroPerks](https://github.com/respecting/NitroPerks))
  Unlock all screensharing modes, Discord wide!
  
- !!Warning: Conflict with [DiscordFreeEmojis](https://github.com/An00nymushun/DiscordFreeEmojis) (An0)
+ !!Warning: Conflict with [DiscordFreeEmojis](https://github.com/An00nymushun/DiscordFreeEmojis) (An0)!!
